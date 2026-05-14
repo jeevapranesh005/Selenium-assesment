@@ -34,58 +34,46 @@ public class AddressBookPage {
     By successMessage = By.xpath("//div[contains(@class,'alert-success')]");
 
     public void navigateToAddressBook() {
-
         mywait.until(ExpectedConditions.elementToBeClickable(addressBook)).click();
-
         mywait.until(ExpectedConditions.elementToBeClickable(newAddress)).click();
     }
 
     public void enterFirstName(String value) {
-
         driver.findElement(firstName).sendKeys(value);
-    }
+      
+ }
 
     public void enterLastName(String value) {
-
         driver.findElement(lastName).sendKeys(value);
-    }
+    	}
 
     public void enterAddress1(String value) {
-
         driver.findElement(address1).sendKeys(value);
-    }
+    		}	
 
     public void enterCity(String value) {
-
         driver.findElement(city).sendKeys(value);
-    }
+   }
 
     public void enterPostCode(String value) {
-
         driver.findElement(postcode).sendKeys(value);
     }
 
     public void selectCountry(String value) {
-
         Select select = new Select(driver.findElement(country));
-
         select.selectByVisibleText(value);
     }
 
     public void selectRegion(String value) {
-
         Select select = new Select(driver.findElement(region));
-
         select.selectByVisibleText(value);
     }
 
     public void clickContinue() {
-
         driver.findElement(continueButton).click();
     }
 
     public boolean successMessageDisplayed() {
-
         return driver.findElements(successMessage).size() > 0;
     }
 }

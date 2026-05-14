@@ -80,42 +80,29 @@ public class stepDefinition {
     
     @When("the user navigates to Address Book page")
     public void the_user_navigates_to_address_book_page() {
-
         address.navigateToAddressBook();
     }
 
     @When("the user enters address details")
     public void the_user_enters_address_details(DataTable dataTable) {
-
         Map<String, String> data = dataTable.asMap(String.class, String.class);
-
         address.enterFirstName(data.get("firstname"));
-
         address.enterLastName(data.get("lastname"));
-
         address.enterAddress1(data.get("address1"));
-
         address.enterCity(data.get("city"));
-
         address.enterPostCode(data.get("postcode"));
-
         address.selectCountry(data.get("country"));
-
         address.selectRegion(data.get("region"));
     }
 
     @When("the user clicks the continue button")
     public void the_user_clicks_the_continue_button() {
-
         address.clickContinue();
     }
 
     @Then("the address should be added successfully")
     public void the_address_should_be_added_successfully() {
-
-        Assert.assertTrue(
-                address.successMessageDisplayed(),
-                "Address was not added successfully");
+        Assert.assertTrue(address.successMessageDisplayed(),"Address was not added successfully");
     }
     
 }
